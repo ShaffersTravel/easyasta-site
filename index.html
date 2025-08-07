@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy ASTA - ESTA Application Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for credit card icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-NL8+b9o7JyRj/wmKzC7T0mjCXed3HT5iEw7Nf3hkRJ/hcGkvpAgmmv3K2eC3DdD4" crossorigin="anonymous">
+    <!-- Stripe.js for payment integration; replace public key in script.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">Easy ASTA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#countries">Eligibility</a></li>
+            <li><a href="#status">Check Status</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero-section">
+    <!-- Hero illustration removed for GitHub deployment; background gradient used instead -->
+    <div class="hero-content">
+        <h1>Travel to the United States with Ease</h1>
+        <p>Apply for your ESTA quickly and securely with Easy ASTA.</p>
+        <a href="#apply" class="cta-button">Start Application</a>
+    </div>
+</section>
+
+<section class="why-section">
+    <h2>Why Choose Easy ASTA?</h2>
+    <div class="features">
+        <div class="feature-card">
+            <h3>Global Coverage</h3>
+            <p>We support applicants from all Visa Waiver Program countries.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Secure &amp; GDPR Compliant</h3>
+            <p>Your data is encrypted and handled with the utmost care.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Expert Assistance</h3>
+            <p>Our team guides you through every step of the ESTA process.</p>
+        </div>
+        <div class="feature-card">
+        <h3>Transparent Pricing</h3>
+            <p>A straightforward £20 service fee in addition to the official ESTA fee, no hidden costs.</p>
+        </div>
+    </div>
+</section>
+
+<section id="countries" class="countries-section">
+    <h2>Eligible Visa Waiver Countries</h2>
+    <p>Citizens of the following countries are eligible to apply for an ESTA:</p>
+    <div class="countries-list">
+        <span>Andorra</span><span>Australia</span><span>Belgium</span><span>Brunei</span><span>Chile</span>
+        <span>Croatia</span><span>Czech Republic</span><span>Denmark</span><span>Estonia</span><span>Finland</span>
+        <span>France</span><span>Germany</span><span>Greece</span><span>Hungary</span><span>Iceland</span>
+        <span>Ireland</span><span>Israel</span><span>Italy</span><span>Japan</span><span>Latvia</span>
+        <span>Liechtenstein</span><span>Lithuania</span><span>Luxembourg</span><span>Malta</span><span>Monaco</span>
+        <span>Netherlands</span><span>New Zealand</span><span>Norway</span><span>Poland</span><span>Portugal</span>
+        <span>San Marino</span><span>Singapore</span><span>Slovakia</span><span>Slovenia</span><span>South Korea</span>
+        <span>Spain</span><span>Sweden</span><span>Switzerland</span><span>Taiwan</span><span>United Kingdom</span>
+    </div>
+</section>
+
+<section id="apply" class="application-section">
+    <h2>Start Your Application</h2>
+    <form id="applicationForm">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="nationality">Nationality</label>
+            <select id="nationality" required>
+                <option value="">Select your country</option>
+                <!-- Options populated by script.js -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="passport">Passport Number</label>
+            <input type="text" id="passport" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required>
+        </div>
+        <button type="submit" class="cta-button">Submit &amp; Pay £20</button>
+        <!-- Payment icons representing supported card brands -->
+        <div class="payment-icons">
+            <i class="fab fa-cc-visa" aria-label="Visa"></i>
+            <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+            <i class="fab fa-cc-amex" aria-label="American Express"></i>
+            <i class="fab fa-cc-discover" aria-label="Discover"></i>
+        </div>
+    </form>
+    <div id="applicationResult" class="result-message"></div>
+</section>
+
+<section id="status" class="status-section">
+    <h2>Check Your Application Status</h2>
+    <form id="statusForm">
+        <div class="form-group">
+            <label for="refNumber">Reference Number</label>
+            <input type="text" id="refNumber" required placeholder="Enter your reference number">
+        </div>
+        <button type="submit" class="cta-button">Check Status</button>
+    </form>
+    <div id="statusResult" class="result-message"></div>
+</section>
+
+<section id="faq" class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h3>What is an ESTA?</h3>
+        <p>An ESTA (Electronic System for Travel Authorization) allows eligible nationals to travel to the U.S. without a visa for stays up to 90 days for tourism or business【528548964219184†L263-L307】.</p>
+    </div>
+    <div class="faq-item">
+        <h3>How much does it cost?</h3>
+        <p>The official ESTA fee is US$21 (about £15.65 at recent exchange rates). We charge a £20 service fee to handle your application, bringing the total to roughly £35.65. The exact total may vary with exchange rates.</p>
+    </div>
+    <div class="faq-item">
+        <h3>How long is my ESTA valid?</h3>
+        <p>An approved ESTA is generally valid for multiple entries over two years or until your passport expires【528548964219184†L263-L307】.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What if my country is not on the list?</h3>
+        <p>If you are not from a Visa Waiver Program country, you must apply for a traditional U.S. visa through your local embassy or consulate.</p>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to our support team using the form below.</p>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" required>
+        </div>
+        <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" required>
+        </div>
+        <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+    <div id="contactResult" class="result-message"></div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Easy ASTA. All rights reserved.</p>
+        <p>This website is a private service and is not affiliated with the U.S. government. Please review our Terms of Service &amp; Privacy Policy.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
