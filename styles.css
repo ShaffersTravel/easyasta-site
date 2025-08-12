@@ -1,0 +1,11 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: #002f5f; color: white; }
+nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+.hero { background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1950&q=80'); background-size: cover; color: white; height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero .btn { background: #007bff; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; margin-top: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+main h2 { text-align: center; margin-top: 2rem; }
+form { display: flex; flex-direction: column; max-width: 400px; margin: 0 auto; gap: 1rem; }
+label { display: flex; flex-direction: column; font-weight: bold; }
+input, select, button { padding: 0.5rem; font-size: 1rem; }
+button { background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+footer { text-align: center; padding: 1rem; background: #f4f4f4; }
